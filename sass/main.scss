@@ -1,0 +1,519 @@
+// In `sass/main.scss`
+// sass-lint:disable quotes mixins-before-declarations
+@import 'mixin';
+@import 'sanitize';
+
+@font-face {
+  font-family: 'Interstate-BlackCond';
+  src: url("../fonts/Interstate-BlackCond.ttf")  format("truetype"),
+  url("../fonts/Interstate-BlackCond.eot?#iefix")  format("eot"), //for ie6-ie8
+  url("../fonts/Interstate-BlackCond.woff")  format("woff");//modern browser
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Interstate-Bold';
+  src: url("../fonts/Interstate-Bold.ttf") format("truetype"),
+  url("../fonts/Interstate-Bold.eot?#iefix") format("eot"),
+  url("../fonts/Interstate-Bold.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Interstate-BoldCond';
+  src: url("../fonts/Interstate-BoldCond.ttf") format("truetype"),
+  url("../fonts/Interstate-BoldCond.eot?#iefix") format("eot"),
+  url("../fonts/Interstate-BoldCond.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Interstate-Regular';
+  src: url("../fonts/Interstate-Regular.ttf") format("truetype"),
+  url("../fonts/Interstate-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+///////////////////////////////////////////////////
+// @font-face {
+//   font-family: 'Interstate-Bold';
+//   src: url("../fonts/Interstate-Bold.ttf") format("truetype");
+//   font-weight: normal;
+//   font-style: normal;
+// }
+// @font-face {
+//   font-family: 'Interstate-BoldCond';
+//   src: url("../fonts/Interstate-BoldCond.ttf") format("truetype");
+//   font-weight: normal;
+//   font-style: normal;
+// }
+// @font-face { font-family: 'Interstate-Regular';
+//   src: url("../fonts/Interstate-Regular.ttf") format("truetype");
+//   font-weight: normal;
+//   font-style: normal;
+// }
+
+// variables
+$font-blackcond: 'Interstate-BlackCond', sans-serif;
+$font-bold: "Interstate-Bold", sans-serif;
+$font-boldcond: "Interstate-BoldCond", sans-serif;
+$font-reg: "Interstate-Regular", sans-serif;
+
+$font-title: "Interstate-BlackCond", sans-serif;
+$font-copy: 'Open Sans', sans-serif;
+
+$black: #231f20;
+$white: #fff;
+$lightgray: #ccc;
+
+$slick-dot-size: 12px;
+html,
+body {
+  height: 80%;
+  margin: 0;
+  padding: 0;
+}
+
+//==========================================================================
+//  Author's custom styles
+//==========================================================================
+
+.lp-container {
+  @include font-size(12px);
+  width: 100%;
+  margin: 20px auto;
+
+  line-height: 1.5;
+  font-family: $font-copy;
+  font-weight: 400;
+  color: $black;
+  text-align: center;
+  h1,
+  h2,
+  h4 {
+    color: $black;
+  }
+  header {
+    position: relative;
+    background: url("../images/bg_header.jpg") no-repeat;
+    background-size: contain;
+    article {
+      padding-top: 30%;
+      //min-height:400px;
+    }
+  }
+  img {
+    &.header-img {
+      width: 100%;
+    }
+  }
+  hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid $lightgray;
+    margin: 1em 0;
+    padding: 0;
+  }
+
+
+}
+
+//=================
+// header
+//=================
+
+
+.header-title {
+
+  top: 280px;
+  background-color: $white;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 20px;
+  .header-title-lg {
+    @include font-size(80px);
+    @include bp-medium {
+      @include font-size(50px);
+    };
+    @include bp-small {
+      @include font-size(30px);
+    };
+    font-family: $font-blackcond;
+    margin: 10px;
+    line-height: 1;
+
+  }
+  .header-title-sm {
+    @include font-size(30px);
+    @include bp-medium {
+      @include font-size(25px);
+    };
+    @include bp-small {
+      @include font-size(20px);
+    };
+    font-family: $font-boldcond;
+    text-transform: uppercase;
+    margin: 10px 10px;
+  }
+
+  .header-tagline {
+    margin: 20px auto;
+    line-height: 1.5;
+    max-width: 100%;
+    a {
+      color: $black;
+      &:link,
+      &:visited,
+      &:hover,
+      &:active {
+        color: $black;
+        text-decoration: underline;
+      }
+    }
+  }
+}
+//==================
+// flex box layout
+//=================
+.flex-grid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  @include bp-medium {
+    flex-wrap: wrap;
+    &.flex-disable-md {
+      display: block;
+    }
+  }
+  .flex-item {
+    // background-color: #A62E5C;
+    &.flext-item-center {
+      align-self: center;
+    }
+    box-sizing: border-box;
+    flex: 1;
+    text-align: center;
+    img {
+      width: 100%;
+    }
+    @include bp-medium{
+      flex: 1 1 100%;
+    };
+  }
+}
+
+
+//=================
+// content
+//=================
+.item-content {
+  position: relative;
+  img {
+    width: 100%;
+    @include bp-large {
+      height: 100%;
+      // width: 80%;
+    };
+    @include bp-medium {
+      height: 100%;
+      // width: 80%;
+    };
+  }
+  a {
+    color: $black !important;
+    display: inline-block;
+    &:link,
+    &:visited,
+    &:hover,
+    &:active {
+      font-family: $font-copy;
+      font-weight: 600;
+      @include font-size(14px);
+      // @include bp-large {
+      //   @include font-size(10px);
+      // };
+      text-decoration: underline;
+    }
+    &.cta {
+      border: solid 2px $black;
+      padding: 5px 15px;
+      text-decoration: none;
+      color: $black;
+      &.sm-cta {
+        @include breakpoint(1110px) {
+          padding: 0 5px;
+          @include font-size(10px);
+        };
+        @include breakpoint(799px) {
+          padding: 5px 15px;
+          @include font-size(14px);
+        };
+      }
+
+      // margin-top: 20px;
+      }
+
+  }
+  p {
+    max-width: 100%;
+    &.item-content-details {
+      padding-left: 5px;
+      padding-right: 5px;
+      min-height: 160px;
+      @include bp-large {
+        height: 260px;
+      }
+      @include breakpoint(799px) {
+        height: 80px;
+        line-height: 1.2;
+      }
+    }
+  }
+  figure {
+    margin: 10px;
+    img {
+      &.thrink {
+        width: 80%;
+        @include breakpoint(799px) {
+          width: 40%;
+        };
+        display: initial !important;
+      }
+      &.instagram {
+        width: 80%;
+        // @include breakpoint(640px) {
+        //   width: 40%;
+        // };
+        display: initial !important;
+      }
+    }
+  }
+  h2 {
+    &.title {
+      min-height: 70px;
+      @include bp-large {
+        font-size: 15px;
+      }
+      @include bp-medium {
+        font-size: 15px;
+      }
+    }
+  }
+  .play {
+    position: absolute;
+    top: 39%;
+    left: 44%;
+    width: 11% !important;
+    height: 23% !important;
+    opacity: .6;
+    transition: 300ms ease-in-out;
+  }
+
+}
+
+.title-md {
+  @include font-size(40px);
+  @include bp-medium {
+    @include font-size(40px);
+  };
+  @include bp-small {
+    @include font-size(30px);
+  };
+  font-family: $font-blackcond;
+  margin: 10px 10px;
+
+}
+.title-lg {
+  @include font-size(60px);
+  @include bp-medium {
+    @include font-size(40px);
+  };
+  @include bp-small {
+    @include font-size(30px);
+  };
+  font-family: $font-blackcond;
+  margin: 10px 10px;
+
+}
+.title-sm {
+  @include font-size(20px);
+  @include bp-medium {
+    @include font-size(16px);
+  };
+  @include bp-small {
+    @include font-size(15px);
+  };
+  font-family: $font-boldcond;
+  text-transform: uppercase;
+  color: $black;
+  margin: 20px;
+}
+
+.row {
+  p {
+    &.tagline {
+      text-align: center;
+      max-width: 100%;
+    }
+  }
+}
+
+
+.col-content {
+  margin: 5px;
+  @include bp-medium {
+    margin: 0;
+  };
+  img {
+    width: 100%;
+  }
+  h3 {
+    color: $black;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-family: $font-boldcond;
+    text-transform: uppercase;
+    margin: 20px;
+    @include font-size(20px);
+    @include breakpoint(800px) {
+      @include font-size(15px);
+    };
+  }
+  a {
+    color: $black;
+    display: inline-block;
+    margin-bottom: 20px;
+    &:link,
+    &:visited,
+    &:hover,
+    &:active {
+      font-family: $font-copy;
+      font-weight: 600;
+      @include font-size(14px);
+      text-decoration: none !important;
+    }
+    &.cta {
+      border: solid 2px $black;
+      padding: 5px 15px;
+      // margin-top: 20px;
+      }
+
+  }
+  p {
+    &.col-content-details {
+      height: 100px;
+      @include bp-large {
+        height: 150px;
+      }
+      @include bp-medium {
+        height: 70px;
+      }
+    }
+  }
+
+}
+.grid-container {
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+.row {
+  max-width: 100%;
+  margin: auto;
+  height: 100%;
+  position: relative;
+  img {
+    width: 100%;
+  }
+}
+.lp-story {
+  padding: 5% 10%;
+  @include bp-large {
+    padding: 5%;
+  };
+  line-height: 1.5;
+  h4 {
+    color: $black;
+    font-family: $font-boldcond;
+    @include font-size(15px);
+    margin: 3% auto;
+    text-transform:none;
+  }
+  p {
+      margin: 3% auto;
+      padding-top: 2%;
+    &.watch {
+          font-family: $font-copy;
+          font-weight: 600;
+          @include font-size(14px);
+        }
+      a {
+        color: $black;
+        &:link,
+        &:visited,
+        &:hover,
+        &:active {
+          font-family: $font-copy;
+          font-weight: 600;
+          @include font-size(14px);
+          color: $black !important;
+          text-decoration: underline !important;
+        }
+
+  }
+
+}
+}
+
+//===============
+//  specific details
+//===============
+.caption {
+  p {
+    min-height: 125px;
+    max-width: 100%;
+    @include breakpoint(900px) {
+      min-height: 140px;
+      margin: 0;
+    };
+    @include breakpoint(870px) {
+      min-height: 200px;
+    };
+    @include breakpoint(799px) {
+      min-height: 80px;
+    };
+  }
+  h2 {
+    margin: 0;
+  }
+}
+.slick-dots {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+//===============
+// video
+//===============
+.cta:hover {
+  cursor: pointer;
+  .play {
+    opacity: 1;
+  }
+}
+.video-wrapper {
+  overflow: hidden;
+  padding-bottom: 56.25%;
+  position: relative;
+  height: 0;
+  iframe {
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+  }
+}
