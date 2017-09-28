@@ -122,6 +122,8 @@ html, body { height: 80%; margin: 0; padding: 0; }
 
 .flex-grid-col { display: flex; justify-content: space-between; flex-direction: column; }
 
+.flex-grid-col .flex-item-col { flex: 1; }
+
 .item-content { position: relative; }
 
 .item-content img { width: 100%; }

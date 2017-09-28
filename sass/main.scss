@@ -209,9 +209,9 @@ body {
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  // .flex-item-col {
-  //
-  // }
+  .flex-item-col {
+    flex: 1;
+  }
 }
 
 
